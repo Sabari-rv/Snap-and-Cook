@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="static/styles.css">
+    <script>
+        function previewImage(event, previewId) {
+        var reader = new FileReader();
+        reader.onload = function(){
+            var img = document.getElementById(previewId);
+            img.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+</head>
+
+<body>
+    <form action="image_upload" method="post" enctype="multipart/form-data">
+
+        <div style="display: flex; justify-content: center; align-items: center;">\
+            
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Capture</th>
+                        <th>Captured</th>
+                        <th>Ingredient Name</th>
+                    </tr>
+                </thead>
+    
+                <tbody>
+
+                    <tr> 
+                        <td> <br> {{image_file_names[0][0]}} <br> </td>
+                        <td> <br> <img src = "{{image_file_names[0][1]}}" width="200" height="150"> <br> </td>
+                        <td> <br> Corn <br> </td>
+                    </tr>
+
+                </tbody>
+            
+            </table>
+            
+        </div>
+    
+    <div style="display: flex; justify-content: center; align-items: center;">  <input type="submit" value="Upload"> </div>
+    
+    </form>
+
+</body>
+
+</html>

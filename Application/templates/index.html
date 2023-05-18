@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="static/styles.css">
+    <script>
+        function previewImage(event, previewId) {
+        var reader = new FileReader();
+        reader.onload = function(){
+            var img    = document.getElementById(previewId);
+            img.src    = reader.result;
+            img.width  = 150;
+            img.height = 150;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+</head>
+
+<body>
+    <form action="image_upload" method="post" enctype="multipart/form-data">
+
+    <div style="display: flex; justify-content: center; align-items: center;">\
+        
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Ingredients</th>
+                    <th>Captures</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr> 
+<td> <br> <input type="file" name="image1" onchange="previewImage(event, 'preview1')"> <br> </td>
+<td> <div class="preview-container"> <img class="preview" id="preview1"> </div> </td>
+                </tr>
+
+                <!-- <tr>
+<td> <br> <input type="file" name="image2" onchange="previewImage(event, 'preview2')"> <br> </td>
+<td> <div class="preview-container"> <img class="preview" id="preview2"> </div> </td>
+                </tr>
+                <tr>
+<td> <br> <input type="file" name="image3" onchange="previewImage(event, 'preview3')"> <br> </td>
+<td> <div class="preview-container"> <img class="preview" id="preview3"> </div> </td>
+                </tr>
+                <tr>
+<td> <br> <input type="file" name="image4" onchange="previewImage(event, 'preview4')"> <br> </td>
+<td> <div class="preview-container"> <img class="preview" id="preview4"> </div> </td>
+                </tr> -->
+            </tbody>
+            
+        </table>
+        
+    </div>
+
+<div style="display: flex; justify-content: center; align-items: center;">  <input type="submit" value="Upload"> </div>
+
+</form>
+
+</body>

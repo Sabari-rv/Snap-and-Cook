@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Image Upload</title>
+    
+        <style>
+        .preview-container {
+            max-width: 300px;
+            max-height: 300px;
+            border: 1px solid white;
+            margin: 10px 0;
+        }
+        .preview {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        </style>
+
+        <script>
+            function previewImage(event, previewId) {
+            var reader = new FileReader();
+            reader.onload = function(){
+                var img = document.getElementById(previewId);
+                img.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+            }
+        </script>
+
+  </head>
+  <body>
+    <h1>Image Upload</h1>
+    <form action="" method="post" enctype="multipart/form-data">
+
+      <div class="preview-container"> <img class="preview" id="preview1"> </div>
+      <br> <input type="file" name="image1" onchange="previewImage(event, 'preview1')"> <br>
+
+      <div class="preview-container"> <img class="preview" id="preview1"> </div>
+      <br> <input type="file" name="image2" onchange="previewImage(event, 'preview1')"> <br>
+
+      <div class="preview-container"> <img class="preview" id="preview1"> </div>
+      <br> <input type="file" name="image3" onchange="previewImage(event, 'preview1')"> <br>
+
+      <div class="preview-container"> <img class="preview" id="preview1"> </div>
+      <br> <input type="file" name="image4" onchange="previewImage(event, 'preview1')"> <br>
+
+      <input type="submit" value="Upload">
+    </form>
+
+  </body>
+</html>
+
+
+
